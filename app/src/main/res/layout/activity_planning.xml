@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        android:name="hnkntoc.com.seafight2.Activity.fragment.PlayingFieldFragment"
+        android:id="@+id/fieldFragment"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        tools:layout="@layout/fragment_field"
+        android:layout_weight="0"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/planning_ship1"
+                android:id="@+id/Ship1"
+                android:onClick="OnClickNewShip"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/planning_ship3"
+                android:id="@+id/Ship3"
+                android:onClick="OnClickNewShip"
+                android:layout_weight="1"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/planning_ship2"
+                android:id="@+id/Ship2"
+                android:onClick="OnClickNewShip"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/planning_ship4"
+                android:id="@+id/Ship4"
+                android:onClick="OnClickNewShip"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView2"
+                android:src="@drawable/vertical"
+                android:layout_weight="1"
+                android:onClick="OnClickStatusChange" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/planning_clear"
+                android:id="@+id/clear"
+                android:layout_weight="1"
+                android:onClick="OnClickClear"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/planning_delete"
+                android:id="@+id/button4"
+                android:layout_weight="1"
+                android:onClick="OnClickDelete" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/planning_next"
+                android:id="@+id/next"
+                android:layout_weight="1"
+                android:onClick="OnClickNext" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

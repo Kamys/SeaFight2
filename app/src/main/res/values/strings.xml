@@ -1,0 +1,19 @@
+<resources>
+    <!-- name = "имя лаяута_название"-->
+
+                <!-- activity_main -->
+    <string name="app_name">SeaFight2</string>
+    <string name="main_start_one">Играть с ботом</string>
+    <string name="main_start_double">Играть с игроком</string>
+    <string name="main_description">О приложении</string>
+
+
+                <!-- activity_planning -->
+    <string name="planning_ship1">Эсминцы</string>
+    <string name="planning_ship2">Крейсеры</string>
+    <string name="planning_ship3">Линкоры</string>
+    <string name="planning_ship4">Авианосцы</string>
+    <string name="planning_next">Далее</string>
+    <string name="planning_delete">Удалить</string>
+    <string name="planning_clear">Очистить поле</string>
+</resources>

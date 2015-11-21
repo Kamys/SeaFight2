@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <FrameLayout
+        android:layout_width="240dp"
+        android:layout_height="220dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <Button
+                android:layout_width="240dp"
+                android:layout_height="70dp"
+                android:text="@string/main_start_one"
+                android:id="@+id/button"
+                style="@style/ButtonDefault"
+                android:textColor="#fe0000"
+                android:onClick="startPlanningActivity" />
+
+            <Button
+                android:layout_width="240dp"
+                android:layout_height="70dp"
+                android:text="@string/main_start_double"
+                android:id="@+id/button2"
+                style="@style/ButtonDefault" />
+
+            <Button
+                android:layout_width="240dp"
+                android:layout_height="70dp"
+                android:text="@string/main_description"
+                android:id="@+id/button3" />
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>
