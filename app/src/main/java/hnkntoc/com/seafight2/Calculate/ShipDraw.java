@@ -9,7 +9,7 @@ import hnkntoc.com.seafight2.Game.Ship;
 /**
  * Created by HNKNTOC on 11.11.2015.
  */
-public class ShipDraw extends CalculateCoor {
+public class ShipDraw extends CalculateCoorShip {
 
     public ShipDraw(Cell[][] listCell, Ship ship, int columns, int rows) {
         super(listCell, ship, columns, rows);

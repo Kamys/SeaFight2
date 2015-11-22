@@ -7,7 +7,7 @@ import hnkntoc.com.seafight2.Game.Ship;
 /**
  * Created by HNKNTOC on 14.11.2015.
  */
-public class ShipDelet extends CalculateCoor {
+public class ShipDelet extends CalculateCoorShip {
 
     public ShipDelet(Cell[][] listCell, Ship ship, int columns, int rows) {
         super(listCell, ship, columns, rows);

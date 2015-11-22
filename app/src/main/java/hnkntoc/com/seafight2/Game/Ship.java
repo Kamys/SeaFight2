@@ -1,9 +1,7 @@
 package hnkntoc.com.seafight2.Game;
 
-import android.util.Log;
 
-
-import hnkntoc.com.seafight2.Calculate.CalculateCoor;
+import hnkntoc.com.seafight2.Calculate.CalculateCoorShip;
 import hnkntoc.com.seafight2.Calculate.ShipDelet;
 import hnkntoc.com.seafight2.Calculate.ShipDraw;
 import hnkntoc.com.seafight2.Game.Field.Cell;
@@ -67,7 +65,7 @@ public class Ship extends GameObject {
 
     @Override
     public boolean destruction(Cell[][] listCell,int columns, int rows) {
-        CalculateCoor calculateCoor = new ShipDelet(listCell,this,this.columns,this.rows);
+        CalculateCoorShip calculateCoor = new ShipDelet(listCell,this,this.columns,this.rows);
         return calculateCoor.action();
     }
 

@@ -8,7 +8,7 @@ import hnkntoc.com.seafight2.Game.Ship;
  *Проверка Cells на содержани в них других GameObject.
  *true если Cells пусты
  */
-public class ShipCheck extends CalculateCoor {
+public class ShipCheck extends CalculateCoorShip {
 
     private boolean check=true;
 

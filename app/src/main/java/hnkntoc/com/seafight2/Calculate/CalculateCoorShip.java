@@ -8,13 +8,13 @@ import hnkntoc.com.seafight2.Game.Ship;
  * Главный класс в котором производится вычисления клеток на которых находятся кораблик.
  * Дочерние классы совершают действия с этими клетками
  */
-public class CalculateCoor {
+public class CalculateCoorShip {
     protected Cell[][] listCell;
     protected Ship ship;
     protected int columns;
     protected int rows;
 
-    public CalculateCoor(Cell[][] listCell, Ship ship
+    public CalculateCoorShip(Cell[][] listCell, Ship ship
             , int columns, int rows) {
         this.columns = columns;
         this.rows = rows;
@@ -51,6 +51,7 @@ public class CalculateCoor {
 
     }
 
+
     protected void Draw1(int columns,int rows){
         for(int i=0;i<3;i++){
             if(checkCell(columns,rows)) {
@@ -83,22 +84,32 @@ public class CalculateCoor {
         }
     }
 
+    /**
+     * Метод получает координаты на которых находится корабль
+     */
     protected void actionShip(int columns,int rows){
 
     }
 
+    /**
+     * Метод получает координаты на которых находится отступ
+     */
     protected void actionIndent(int columns,int rows){
 
     }
 
     /**
      * Если  columns или rows больше 9 или меньше 0 возвращает false
+     * нужен для того чтоб кораблики не выходили за кроя игрового поля
      */
     protected boolean checkCell(int columns,int rows){
         return (columns>=0 & columns<=9 & rows>=0 & rows<=9);
     }
 
-
+    /**
+     * Запуск вычисления координат для корабля.
+     * @return возвращает false если что-то пошло не так.
+     */
     public boolean action(){
         calculateCell();
         return true;
