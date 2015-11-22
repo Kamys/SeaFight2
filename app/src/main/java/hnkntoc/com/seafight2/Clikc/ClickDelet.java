@@ -8,8 +8,9 @@ import hnkntoc.com.seafight2.Game.Field.Cell;
  */
 public class ClickDelet implements HandlerCellClick {
     @Override
-    public void OnClick(Cell[][] listCell, int columns, int rows) {
+    public boolean OnClick(Cell[][] listCell, int columns, int rows) {
         listCell[columns][rows].getGameObject()
                 .destruction(listCell,columns,rows);
+        return true;
     }
 }

@@ -14,14 +14,13 @@ public class PlayingField {
         this.listCell = listCell;
     }
 
-    public void AddGameObject(GameObject gameObject,int columns,int rows){
-
-        gameObject.add(listCell,columns,rows);
+    public boolean AddGameObject(GameObject gameObject,int columns,int rows){
+        return gameObject.add(listCell,columns,rows);
     }
 
-    public void onClikc(int columns,int rows,HandlerCellClick handlerCellClick){
+    public boolean onClikc(int columns,int rows,HandlerCellClick handlerCellClick){
 
-        handlerCellClick.OnClick(listCell,columns,rows);
+        return handlerCellClick.OnClick(listCell,columns,rows);
     }
 
 }

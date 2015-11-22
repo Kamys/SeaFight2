@@ -23,8 +23,9 @@ public class Indent extends GameObject {
     }
 
     @Override
-    public void add(Cell[][] listCell, int columns, int rows) {
-
+    public boolean add(Cell[][] listCell, int columns, int rows) {
+        listCell[columns][rows].setGameObject(this);
+        return true;
     }
 
     @Override
@@ -33,11 +34,13 @@ public class Indent extends GameObject {
     }
 
     @Override
-    public void destruction(Cell[][] listCell,int columns, int rows) {
+    public boolean destruction(Cell[][] listCell,int columns, int rows) {
         quantity--;
         if(quantity<=0){
             listCell[columns][rows].setGameObject(null);
+            return true;
         }
+        return false;
     }
 
     @Override

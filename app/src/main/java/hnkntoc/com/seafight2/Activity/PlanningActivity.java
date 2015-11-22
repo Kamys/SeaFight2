@@ -6,7 +6,10 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -29,10 +32,25 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
     private boolean butStateAdd; //Нажаты ли кнопки добавление корабля
     private boolean butStateDelet;//Нажати ли кнопка Удалит
 
+    private Button addShip1;
+    private Button addShip2;
+    private Button addShip3;
+    private Button addShip4;
+
+    private int quantityShips1;
+    private int quantityShips2;
+    private int quantityShips3;
+    private int quantityShips4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planning);
+
+        addShip1 = (Button) findViewById(R.id.newShip1);
+        addShip2 = (Button) findViewById(R.id.newShip2);
+        addShip3 = (Button) findViewById(R.id.newShip3);
+        addShip4 = (Button) findViewById(R.id.newShip4);
 
         PlayingFieldFragment fieldFragment = (PlayingFieldFragment) getFragmentManager().findFragmentById(R.id.fieldFragment);
 
@@ -53,12 +71,13 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
         Log.i("onClick", v.toString());
         Cell cell = (Cell) v;
 
-        if(butStateAdd) {
+        if(butStateAdd & thisShip != null) {
             thisShip.setColumns(cell.getColumns());
             thisShip.setRows(cell.getRows());
             thisShip.setState(thisStatus);
-            listShip.add(thisShip);
-            playingField.AddGameObject(thisShip,cell.getColumns(),cell.getRows());
+            if(playingField.AddGameObject(thisShip,cell.getColumns(),cell.getRows())){
+                listShip.add(thisShip);
+            }
         }
 
         if(cell.getGameObject()==null){
@@ -76,19 +95,63 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
             listShip.remove(cell.getGameObject());
             playingField.onClikc(cell.getColumns(),cell.getRows(),new ClickDelet());
         }
-
-
+        calcShips();
         butStateAdd = false;
         butStateDelet = false;
     }
 
+    public void calcShips(){
+
+        quantityShips1=0;
+        quantityShips2=0;
+        quantityShips3=0;
+        quantityShips4=0;
+
+        for(Ship ship:listShip){
+            switch (ship.getSize()){
+                case 1: quantityShips1++; break;
+                case 2: quantityShips2++; break;
+                case 3: quantityShips3++; break;
+                case 4: quantityShips4++; break;
+            }
+        }
+        checButton();
+    }
+
+    public void checButton(){
+        if(quantityShips1>=4){
+            addShip1.setEnabled(false);
+        }else {
+            addShip1.setEnabled(true);
+        }
+
+        if(quantityShips2>=3){
+            addShip2.setEnabled(false);
+        }else {
+            addShip2.setEnabled(true);
+        }
+
+        if(quantityShips3>=2){
+            addShip3.setEnabled(false);
+        }else {
+            addShip3.setEnabled(true);
+        }
+
+        if(quantityShips4>=1){
+            addShip4.setEnabled(false);
+        }else {
+            addShip4.setEnabled(true);
+        }
+    }
+
     public void OnClickNewShip(View v){
+        thisShip=null;
         butStateAdd = true;
         switch (v.getId()){
-            case R.id.Ship1: thisShip = new Ship(R.drawable.yellow_field,1); break;
-            case R.id.Ship2: thisShip = new Ship(R.drawable.green_field,2); break;
-            case R.id.Ship3: thisShip = new Ship(R.drawable.blue_field,3); break;
-            case R.id.Ship4: thisShip = new Ship(R.drawable.red_field,4); break;
+            case R.id.newShip1: thisShip = new Ship(R.drawable.yellow_field,1); break;
+            case R.id.newShip2: thisShip = new Ship(R.drawable.green_field,2); break;
+            case R.id.newShip3: thisShip = new Ship(R.drawable.blue_field,3); break;
+            case R.id.newShip4: thisShip = new Ship(R.drawable.red_field,4); break;
         }
     }
 
@@ -115,8 +178,10 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
 
     public void OnClickClear(View v){
         for(Ship ship:listShip){
-            ship.destruction(listCell,ship.getColumns(),ship.getRows());
+            ship.destruction(listCell, ship.getColumns(), ship.getRows());
         }
+        listShip.clear();
+        calcShips();
     }
 
 }

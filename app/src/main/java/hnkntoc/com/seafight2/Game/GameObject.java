@@ -19,8 +19,9 @@ public class GameObject {
         return resorseId;
     }
 
-    public void add(Cell[][] listCell,int columns,int rows){
+    public boolean add(Cell[][] listCell,int columns,int rows){
         listCell[columns][rows].setGameObject(this);
+        return true;
     }
 
     public void setResorseId(int resorseId) {
@@ -31,8 +32,9 @@ public class GameObject {
         Log.i("GameObject",this.toString());
     }
 
-    public void destruction(Cell[][] listCell,int columns,int rows){
+    public boolean destruction(Cell[][] listCell,int columns,int rows){
         listCell[columns][rows].setGameObject(null);
+        return true;
     }
 
     @Override

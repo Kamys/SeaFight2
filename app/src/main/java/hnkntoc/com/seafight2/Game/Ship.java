@@ -60,17 +60,15 @@ public class Ship extends GameObject {
 
 
     @Override
-    public void add(Cell[][] listCell,int columns, int rows) {
+    public boolean add(Cell[][] listCell,int columns, int rows) {
         ShipDraw draw = new ShipDraw(listCell,this,columns,rows);
-        if(!draw.action()){
-            Log.v(TAG, "Не прошол проверку (клетка занята)");
-        }
+        return draw.action();
     }
 
     @Override
-    public void destruction(Cell[][] listCell,int columns, int rows) {
+    public boolean destruction(Cell[][] listCell,int columns, int rows) {
         CalculateCoor calculateCoor = new ShipDelet(listCell,this,this.columns,this.rows);
-        calculateCoor.action();
+        return calculateCoor.action();
     }
 
     @Override

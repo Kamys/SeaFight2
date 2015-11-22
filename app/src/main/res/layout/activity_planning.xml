@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/planning_ship1"
-                android:id="@+id/Ship1"
+                android:id="@+id/newShip1"
                 android:onClick="OnClickNewShip"
                 android:layout_weight="1"/>
 
@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/planning_ship3"
-                android:id="@+id/Ship3"
+                android:id="@+id/newShip3"
                 android:onClick="OnClickNewShip"
                 android:layout_weight="1"/>
 
@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/planning_ship2"
-                android:id="@+id/Ship2"
+                android:id="@+id/newShip2"
                 android:onClick="OnClickNewShip"
                 android:layout_weight="1"/>
 
@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/planning_ship4"
-                android:id="@+id/Ship4"
+                android:id="@+id/newShip4"
                 android:onClick="OnClickNewShip"
                 android:layout_weight="1"/>
 
@@ -78,7 +78,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/imageView2"
                 android:src="@drawable/vertical"
-                android:layout_weight="1"
+                android:layout_weight="1.1"
                 android:onClick="OnClickStatusChange" />
 
             <Button
