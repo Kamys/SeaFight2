@@ -1,4 +1,4 @@
-package hnkntoc.com.seafight2.Calculate;
+package hnkntoc.com.seafight2.Game.Calculate;
 
 
 import hnkntoc.com.seafight2.Game.Field.Cell;

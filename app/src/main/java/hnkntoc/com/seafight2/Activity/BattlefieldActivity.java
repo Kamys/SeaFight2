@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentActivity;
 import java.util.ArrayList;
 
 import hnkntoc.com.seafight2.Activity.fragment.PlayingFieldFragment;
-import hnkntoc.com.seafight2.Calculate.ShipDraw;
+import hnkntoc.com.seafight2.Game.Calculate.ShipDraw;
 import hnkntoc.com.seafight2.Game.Field.Cell;
 import hnkntoc.com.seafight2.Game.Ship;
 import hnkntoc.com.seafight2.R;
@@ -28,7 +28,7 @@ public class BattlefieldActivity extends FragmentActivity {
         Cell[][] cells = fragment.getListCell();
 
         for (Ship ship: (ArrayList<Ship>) getIntent().getSerializableExtra("list")) {
-            ShipDraw shipDraw = new ShipDraw(cells,ship,ship.getColumns(),ship.getRows());
+            ShipDraw shipDraw = new ShipDraw(cells,ship);
             shipDraw.action();
         }
 

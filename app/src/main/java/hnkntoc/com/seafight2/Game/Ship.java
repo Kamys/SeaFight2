@@ -1,12 +1,11 @@
 package hnkntoc.com.seafight2.Game;
 
 
-import java.io.Serializable;
-
-import hnkntoc.com.seafight2.Calculate.CalculateCoorShip;
-import hnkntoc.com.seafight2.Calculate.ShipDelet;
-import hnkntoc.com.seafight2.Calculate.ShipDraw;
+import hnkntoc.com.seafight2.Game.Calculate.CalculateCoorShip;
+import hnkntoc.com.seafight2.Game.Calculate.ShipDelet;
+import hnkntoc.com.seafight2.Game.Calculate.ShipDraw;
 import hnkntoc.com.seafight2.Game.Field.Cell;
+import hnkntoc.com.seafight2.R;
 
 
 /**
@@ -15,29 +14,19 @@ import hnkntoc.com.seafight2.Game.Field.Cell;
 public class Ship extends GameObject{
 
     private int size;
-    private boolean state;
-    private int rows;
-    private int columns;
+    private boolean state; //true- vertical , false - horizontal;
 
-    public Ship(int resorseId,int size) {
-        super(resorseId);
+    public Ship(int size) {
+        super(R.drawable.white_field);
         this.size = size;
-    }
 
-    public int getRows() {
-        return rows;
-    }
+        switch (size){
+            case 1: resorseId = R.drawable.yellow_field; break;
+            case 2: resorseId = R.drawable.green_field; break;
+            case 3: resorseId = R.drawable.blue_field; break;
+            case 4: resorseId = R.drawable.red_field; break;
+        }
 
-    public void setRows(int rows) {
-        this.rows = rows;
-    }
-
-    public int getColumns() {
-        return columns;
-    }
-
-    public void setColumns(int columns) {
-        this.columns = columns;
     }
 
     public int getSize() {
@@ -58,13 +47,13 @@ public class Ship extends GameObject{
 
 
     @Override
-    public boolean add(Cell[][] listCell,int columns, int rows) {
-        ShipDraw draw = new ShipDraw(listCell,this,columns,rows);
+    public boolean add(Cell[][] listCell) {
+        ShipDraw draw = new ShipDraw(listCell,this);
         return draw.action();
     }
 
     @Override
-    public boolean destruction(Cell[][] listCell,int columns, int rows) {
+    public boolean destruction(Cell[][] listCell) {
         CalculateCoorShip calculateCoor = new ShipDelet(listCell,this,this.columns,this.rows);
         return calculateCoor.action();
     }

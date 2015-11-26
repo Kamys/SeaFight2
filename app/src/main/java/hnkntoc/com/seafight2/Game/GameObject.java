@@ -12,6 +12,8 @@ import hnkntoc.com.seafight2.Game.Field.Cell;
  */
 public class GameObject implements Serializable {
     protected int resorseId;
+    protected int rows;
+    protected int columns;
 
     public GameObject(int resorseId) {
         this.resorseId = resorseId;
@@ -21,7 +23,23 @@ public class GameObject implements Serializable {
         return resorseId;
     }
 
-    public boolean add(Cell[][] listCell,int columns,int rows){
+    public int getRows() {
+        return rows;
+    }
+
+    public void setRows(int rows) {
+        this.rows = rows;
+    }
+
+    public int getColumns() {
+        return columns;
+    }
+
+    public void setColumns(int columns) {
+        this.columns = columns;
+    }
+
+    public boolean add(Cell[][] listCell){
         listCell[columns][rows].setGameObject(this);
         return true;
     }
@@ -34,7 +52,7 @@ public class GameObject implements Serializable {
         Log.i("GameObject",this.toString());
     }
 
-    public boolean destruction(Cell[][] listCell,int columns,int rows){
+    public boolean destruction(Cell[][] listCell){
         listCell[columns][rows].setGameObject(null);
         return true;
     }

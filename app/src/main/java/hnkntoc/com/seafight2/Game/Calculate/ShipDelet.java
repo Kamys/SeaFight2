@@ -1,4 +1,4 @@
-package hnkntoc.com.seafight2.Calculate;
+package hnkntoc.com.seafight2.Game.Calculate;
 
 
 import hnkntoc.com.seafight2.Game.Field.Cell;
@@ -25,7 +25,7 @@ public class ShipDelet extends CalculateCoorShip {
     protected void actionIndent(int columns, int rows) {
         Cell cell = listCell[columns][rows];
         if(cell.getGameObject()!=null){
-            cell.getGameObject().destruction(listCell,columns,rows);
+            cell.getGameObject().destruction(listCell);
         }
     }
 

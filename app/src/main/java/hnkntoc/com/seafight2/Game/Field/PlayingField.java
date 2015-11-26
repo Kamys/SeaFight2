@@ -1,7 +1,7 @@
 package hnkntoc.com.seafight2.Game.Field;
 
 
-import hnkntoc.com.seafight2.Clikc.HandlerCellClick;
+import hnkntoc.com.seafight2.Game.Clikc.HandlerCellClick;
 import hnkntoc.com.seafight2.Game.GameObject;
 
 /**
@@ -15,7 +15,7 @@ public class PlayingField {
     }
 
     public boolean AddGameObject(GameObject gameObject,int columns,int rows){
-        return gameObject.add(listCell,columns,rows);
+        return gameObject.add(listCell);
     }
 
     public boolean onClikc(int columns,int rows,HandlerCellClick handlerCellClick){

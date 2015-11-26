@@ -16,4 +16,5 @@
     <string name="planning_next">Далее</string>
     <string name="planning_delete">Удалить</string>
     <string name="planning_clear">Очистить поле</string>
+    <string name="planning_random">Случайно</string>
 </resources>

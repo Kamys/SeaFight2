@@ -10,8 +10,10 @@ public class Indent extends GameObject {
 
     private int quantity=1;
 
-    public Indent() {
+    public Indent(int columns,int rows) {
         super(R.drawable.krestik);
+        this.columns=columns;
+        this.rows=rows;
     }
 
     public int getQuantity() {
@@ -23,7 +25,7 @@ public class Indent extends GameObject {
     }
 
     @Override
-    public boolean add(Cell[][] listCell, int columns, int rows) {
+    public boolean add(Cell[][] listCell) {
         listCell[columns][rows].setGameObject(this);
         return true;
     }
@@ -34,7 +36,7 @@ public class Indent extends GameObject {
     }
 
     @Override
-    public boolean destruction(Cell[][] listCell,int columns, int rows) {
+    public boolean destruction(Cell[][] listCell) {
         quantity--;
         if(quantity<=0){
             listCell[columns][rows].setGameObject(null);

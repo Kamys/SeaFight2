@@ -15,7 +15,11 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import hnkntoc.com.seafight2.Game.Calculate.ShipDraw;
 import hnkntoc.com.seafight2.Game.Field.Cell;
+import hnkntoc.com.seafight2.Game.Ship;
 import hnkntoc.com.seafight2.R;
 
 /**
@@ -141,6 +145,14 @@ public class PlayingFieldFragment extends Fragment{
             return listCell;
         }
         return null;
+    }
+
+    public void update(ArrayList<Ship> listShips){
+        ShipDraw shipDraw;
+        for(Ship ship:listShips){
+            shipDraw = new ShipDraw(listCell,ship);
+            shipDraw.action();
+        }
     }
 
 }

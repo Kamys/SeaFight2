@@ -1,4 +1,4 @@
-package hnkntoc.com.seafight2.Clikc;
+package hnkntoc.com.seafight2.Game.Clikc;
 
 
 import hnkntoc.com.seafight2.Game.Field.Cell;

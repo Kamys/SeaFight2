@@ -12,9 +12,10 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-import hnkntoc.com.seafight2.Clikc.ClickDelet;
+import hnkntoc.com.seafight2.Game.Clikc.ClickDelet;
 import hnkntoc.com.seafight2.Game.Field.Cell;
 import hnkntoc.com.seafight2.Game.Field.PlayingField;
+import hnkntoc.com.seafight2.Game.GenerationShip;
 import hnkntoc.com.seafight2.R;
 import hnkntoc.com.seafight2.Activity.fragment.PlayingFieldFragment;
 import hnkntoc.com.seafight2.Game.Ship;
@@ -27,6 +28,7 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
     private boolean thisStatus=true; //true- vertical , false - horizontal;
     private ArrayList<Ship> listShip = new ArrayList<>();
     private PlayingField playingField;
+    private PlayingFieldFragment playingFieldFragment;
 
     private boolean butStateAdd; //Нажаты ли кнопки добавление корабля
     private boolean butStateDelet;//Нажати ли кнопка Удалит
@@ -51,10 +53,10 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
         addShip3 = (Button) findViewById(R.id.newShip3);
         addShip4 = (Button) findViewById(R.id.newShip4);
 
-        PlayingFieldFragment fieldFragment = (PlayingFieldFragment) getFragmentManager().findFragmentById(R.id.fieldFragment);
+        playingFieldFragment = (PlayingFieldFragment) getFragmentManager().findFragmentById(R.id.fieldFragment);
 
-        listCell = fieldFragment.getListCell();
-        for(Cell cells[]:fieldFragment.getListCell()){
+        listCell = playingFieldFragment.getListCell();
+        for(Cell cells[]: playingFieldFragment.getListCell()){
             for(Cell cell:cells){
                 cell.setOnClickListener(this);
             }
@@ -98,6 +100,9 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
         butStateDelet = false;
     }
 
+    /**
+     * Считает количество Ships
+     */
     public void calcShips(){
 
         quantityShips1=0;
@@ -146,10 +151,10 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
         thisShip=null;
         butStateAdd = true;
         switch (v.getId()){
-            case R.id.newShip1: thisShip = new Ship(R.drawable.yellow_field,1); break;
-            case R.id.newShip2: thisShip = new Ship(R.drawable.green_field,2); break;
-            case R.id.newShip3: thisShip = new Ship(R.drawable.blue_field,3); break;
-            case R.id.newShip4: thisShip = new Ship(R.drawable.red_field,4); break;
+            case R.id.newShip1: thisShip = new Ship(1); break;
+            case R.id.newShip2: thisShip = new Ship(2); break;
+            case R.id.newShip3: thisShip = new Ship(3); break;
+            case R.id.newShip4: thisShip = new Ship(4); break;
         }
     }
 
@@ -170,7 +175,7 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
 
     public void OnClickClear(View v){
         for(Ship ship:listShip){
-            ship.destruction(listCell, ship.getColumns(), ship.getRows());
+            ship.destruction(listCell);
         }
         listShip.clear();
         calcShips();
@@ -179,7 +184,20 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
     public void OnClickNext(View v){
         Log.i("OnClickNext", "NEXT GO");
         Intent intent = new Intent(this,BattlefieldActivity.class);
-        intent.putExtra("list",listShip);
+        intent.putExtra("list", listShip);
         startActivity(intent);
     }
+
+    public void OnClickRandom(View v){
+        OnClickClear(null);
+        GenerationShip generationShip = new GenerationShip(listCell);
+        if(!generationShip.generate()){
+            playingFieldFragment.update(listShip);
+            calcShips();
+            return;
+        }
+        listShip = generationShip.getListShip();
+        calcShips();
+    }
+
 }

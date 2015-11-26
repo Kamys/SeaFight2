@@ -1,4 +1,4 @@
-package hnkntoc.com.seafight2.Calculate;
+package hnkntoc.com.seafight2.Game.Calculate;
 
 import android.util.Log;
 
@@ -11,8 +11,8 @@ import hnkntoc.com.seafight2.Game.Ship;
  */
 public class ShipDraw extends CalculateCoorShip {
 
-    public ShipDraw(Cell[][] listCell, Ship ship, int columns, int rows) {
-        super(listCell, ship, columns, rows);
+    public ShipDraw(Cell[][] listCell, Ship ship) {
+        super(listCell, ship, ship.getColumns(), ship.getRows());
         super.columns--;
         super.rows--;
     }
@@ -29,7 +29,7 @@ public class ShipDraw extends CalculateCoorShip {
         Log.i("ActionGrap krestik", "" + columns + ";" + rows + "=" + listCell[columns][rows].toString());
         Cell cell = listCell[columns][rows];
         if(cell.getGameObject()==null){
-            cell.setGameObject(new Indent());
+            cell.setGameObject(new Indent(columns,rows));
         }else {
             cell.getGameObject().onClick();
         }

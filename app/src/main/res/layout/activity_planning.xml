@@ -27,6 +27,31 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:text="@string/planning_clear"
+                android:id="@+id/clear"
+                android:layout_weight="1"
+                android:onClick="OnClickClear"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/planning_random"
+                android:id="@+id/random"
+                android:layout_weight="1"
+                android:onClick="OnClickRandom"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="@string/planning_ship1"
                 android:id="@+id/newShip1"
                 android:onClick="OnClickNewShip"
@@ -80,14 +105,6 @@
                 android:src="@drawable/vertical"
                 android:layout_weight="1.1"
                 android:onClick="OnClickStatusChange" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/planning_clear"
-                android:id="@+id/clear"
-                android:layout_weight="1"
-                android:onClick="OnClickClear"/>
 
             <Button
                 android:layout_width="match_parent"
