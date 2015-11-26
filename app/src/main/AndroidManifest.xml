@@ -15,8 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="hnkntoc.com.seafight2.Activity.PlanningActivity" >
-        </activity>
+
+        <activity android:name="hnkntoc.com.seafight2.Activity.PlanningActivity" ></activity>
+
+        <activity android:name=".Activity.BattlefieldActivity" ></activity>
+
+
+
     </application>
 
 </manifest>

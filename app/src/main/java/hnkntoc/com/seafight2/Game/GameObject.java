@@ -3,12 +3,14 @@ package hnkntoc.com.seafight2.Game;
 
 import android.util.Log;
 
+import java.io.Serializable;
+
 import hnkntoc.com.seafight2.Game.Field.Cell;
 
 /**
  * Интерфейс от которого наследуются все отображаемые объекты на игровом поле
  */
-public class GameObject {
+public class GameObject implements Serializable {
     protected int resorseId;
 
     public GameObject(int resorseId) {

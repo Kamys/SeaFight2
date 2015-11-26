@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="330dp">
 
 
     <LinearLayout
@@ -14,7 +14,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
+ <!--   <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,79 +26,77 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="1"
-            android:textSize="30dp"
             android:id="@+id/name_columns_1" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_1_rows_1"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_1_rows_2"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_1_rows_3"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_1_rows_4"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_1_rows_5"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_1_rows_6"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_1_rows_7"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_1_rows_8"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_1_rows_9"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_1_rows_10"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
     </LinearLayout>
 
@@ -114,82 +112,80 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="2"
-            android:textSize="30dp"
             android:id="@+id/name_columns_2" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_2_rows_1"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_2_rows_2"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_2_rows_3"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_2_rows_4"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_2_rows_5"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_2_rows_6"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_2_rows_7"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_2_rows_8"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_2_rows_9"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_weight="1"
             android:id="@+id/columns_2_rows_10"
-            android:src="@drawable/white_field"/>
+            android:src="@drawable/white_field2"/>
 
     </LinearLayout>
-
+-->
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"

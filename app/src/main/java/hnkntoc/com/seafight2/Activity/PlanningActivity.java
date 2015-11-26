@@ -2,6 +2,7 @@ package hnkntoc.com.seafight2.Activity;
 
 
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -53,7 +54,6 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
         PlayingFieldFragment fieldFragment = (PlayingFieldFragment) getFragmentManager().findFragmentById(R.id.fieldFragment);
 
         listCell = fieldFragment.getListCell();
-
         for(Cell cells[]:fieldFragment.getListCell()){
             for(Cell cell:cells){
                 cell.setOnClickListener(this);
@@ -168,12 +168,6 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
         butStateDelet = true;
     }
 
-    public void OnClickNext(View v){
-        for (Ship ship:listShip) {
-            Log.i("OnClickNext",ship.toString());
-        }
-    }
-
     public void OnClickClear(View v){
         for(Ship ship:listShip){
             ship.destruction(listCell, ship.getColumns(), ship.getRows());
@@ -182,4 +176,10 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
         calcShips();
     }
 
+    public void OnClickNext(View v){
+        Log.i("OnClickNext", "NEXT GO");
+        Intent intent = new Intent(this,BattlefieldActivity.class);
+        intent.putExtra("list",listShip);
+        startActivity(intent);
+    }
 }

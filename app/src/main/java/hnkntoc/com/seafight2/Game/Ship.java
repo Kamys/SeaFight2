@@ -1,6 +1,8 @@
 package hnkntoc.com.seafight2.Game;
 
 
+import java.io.Serializable;
+
 import hnkntoc.com.seafight2.Calculate.CalculateCoorShip;
 import hnkntoc.com.seafight2.Calculate.ShipDelet;
 import hnkntoc.com.seafight2.Calculate.ShipDraw;
@@ -10,9 +12,7 @@ import hnkntoc.com.seafight2.Game.Field.Cell;
 /**
  * Created by HNKNTOC on 10.11.2015.
  */
-public class Ship extends GameObject {
-
-    private static final String TAG = "Ship";
+public class Ship extends GameObject{
 
     private int size;
     private boolean state;

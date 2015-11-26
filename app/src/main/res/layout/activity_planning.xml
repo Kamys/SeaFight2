@@ -7,10 +7,10 @@
     <fragment
         android:name="hnkntoc.com.seafight2.Activity.fragment.PlayingFieldFragment"
         android:id="@+id/fieldFragment"
-        android:layout_width="match_parent"
-        android:layout_height="330dp"
-        tools:layout="@layout/fragment_field"
-        android:layout_weight="0"/>
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_field2"
+        android:layout_weight="1"/>
 
     <LinearLayout
         android:orientation="vertical"
