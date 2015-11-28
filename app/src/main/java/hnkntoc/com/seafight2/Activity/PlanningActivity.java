@@ -10,15 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import java.util.ArrayList;
-
-import hnkntoc.com.seafight2.Game.Clikc.ClickDelet;
 import hnkntoc.com.seafight2.Game.Field.Cell;
 import hnkntoc.com.seafight2.Game.Field.PlayingField;
-import hnkntoc.com.seafight2.Game.Object.GenerationShip;
 import hnkntoc.com.seafight2.R;
 import hnkntoc.com.seafight2.Activity.fragment.PlayingFieldFragment;
-import hnkntoc.com.seafight2.Game.Object.Ship;
 
 /**
  * В этом активити происходит расстановка Ships.
@@ -26,10 +21,8 @@ import hnkntoc.com.seafight2.Game.Object.Ship;
  */
 public class PlanningActivity extends FragmentActivity implements View.OnClickListener{
 
-    private Ship thisShip;
-    private Cell[][] listCell;
+    private int thisShip;
     private boolean thisStatus=true; //true- vertical , false - horizontal;
-    private ArrayList<Ship> listShip = new ArrayList<>();
     private PlayingField playingField;
     private PlayingFieldFragment playingFieldFragment;
 
@@ -40,11 +33,6 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
     private Button addShip2;
     private Button addShip3;
     private Button addShip4;
-
-    private int quantityShips1;
-    private int quantityShips2;
-    private int quantityShips3;
-    private int quantityShips4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,14 +46,13 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
 
         playingFieldFragment = (PlayingFieldFragment) getFragmentManager().findFragmentById(R.id.fieldFragment);
 
-        listCell = playingFieldFragment.getListCell();
         for(Cell cells[]: playingFieldFragment.getListCell()){
             for(Cell cell:cells){
                 cell.setOnClickListener(this);
             }
         }
 
-        playingField = new PlayingField(listCell);
+        playingField = new PlayingField(playingFieldFragment.getListCell(),this);
 
     }
 
@@ -74,90 +61,37 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
         Log.i("onClick", v.toString());
         Cell cell = (Cell) v;
 
-        if(butStateAdd & thisShip != null) {
-            thisShip.setColumns(cell.getColumns());
-            thisShip.setRows(cell.getRows());
-            thisShip.setState(thisStatus);
-            if(playingField.AddGameObject(thisShip,cell.getColumns(),cell.getRows())){
-                listShip.add(thisShip);
-            }
+        int columns = cell.getColumns();
+        int rows = cell.getRows();
+
+        if(butStateAdd & thisShip != 0) {
+            playingField.addGameObject(thisShip, thisStatus,columns,rows);
         }
 
         if(cell.getGameObject()==null){
             return;
         }
 
-        try {
-            Ship s = (Ship) cell.getGameObject();
-        } catch (Exception e) {
+        if(thisShip!=0){
             return;
         }
 
 
         if(butStateDelet){
-            listShip.remove(cell.getGameObject());
-            playingField.onClikc(cell.getColumns(),cell.getRows(),new ClickDelet());
+            playingField.destructionGameObject(columns, rows);
         }
-        calcShips();
         butStateAdd = false;
         butStateDelet = false;
     }
 
-    /**
-     * Считает количество Ships
-     */
-    public void calcShips(){
-
-        quantityShips1=0;
-        quantityShips2=0;
-        quantityShips3=0;
-        quantityShips4=0;
-
-        for(Ship ship:listShip){
-            switch (ship.getSize()){
-                case 1: quantityShips1++; break;
-                case 2: quantityShips2++; break;
-                case 3: quantityShips3++; break;
-                case 4: quantityShips4++; break;
-            }
-        }
-        checButton();
-    }
-
-    public void checButton(){
-        if(quantityShips1>=4){
-            addShip1.setEnabled(false);
-        }else {
-            addShip1.setEnabled(true);
-        }
-
-        if(quantityShips2>=3){
-            addShip2.setEnabled(false);
-        }else {
-            addShip2.setEnabled(true);
-        }
-
-        if(quantityShips3>=2){
-            addShip3.setEnabled(false);
-        }else {
-            addShip3.setEnabled(true);
-        }
-
-        if(quantityShips4>=1){
-            addShip4.setEnabled(false);
-        }else {
-            addShip4.setEnabled(true);
-        }
-    }
-
     public void OnClickNewShip(View v){
-        thisShip=null;
+        thisShip=0;
         butStateAdd = true;
         switch (v.getId()){
-            case R.id.newShip1: thisShip = new Ship(1); break;
-            case R.id.newShip2: thisShip = new Ship(2); break;
-            case R.id.newShip3: thisShip = new Ship(3); break;
-            case R.id.newShip4: thisShip = new Ship(4); break;
+            case R.id.newShip1: thisShip = 1; break;
+            case R.id.newShip2: thisShip = 2; break;
+            case R.id.newShip3: thisShip = 3; break;
+            case R.id.newShip4: thisShip = 4; break;
         }
     }
 
@@ -173,34 +107,39 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
     }
 
     public void OnClickDelete(View v){
+        thisShip = 0;
         butStateDelet = true;
     }
 
     public void OnClickClear(View v){
-        for(Ship ship:listShip){
-            ship.destruction(listCell);
-        }
-        listShip.clear();
-        calcShips();
+        playingField.clearGameObject();
     }
 
     public void OnClickNext(View v){
         Log.i("OnClickNext", "NEXT GO");
         Intent intent = new Intent(this,BattlefieldActivity.class);
-        intent.putExtra("list", listShip);
+        intent.putExtra("Player1", "test");
+        intent.putExtra("Player2", "");
         startActivity(intent);
     }
 
     public void OnClickRandom(View v){
-        OnClickClear(null);
-        GenerationShip generationShip = new GenerationShip(listCell);
-        if(!generationShip.generate()){
-            playingFieldFragment.update(listShip);
-            calcShips();
-            return;
-        }
-        listShip = generationShip.getListShip();
-        calcShips();
+        playingField.Random(playingFieldFragment);
     }
 
+    public Button getAddShip1() {
+        return addShip1;
+    }
+
+    public Button getAddShip2() {
+        return addShip2;
+    }
+
+    public Button getAddShip3() {
+        return addShip3;
+    }
+
+    public Button getAddShip4() {
+        return addShip4;
+    }
 }
