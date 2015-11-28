@@ -7,6 +7,9 @@ import android.view.View;
 
 import hnkntoc.com.seafight2.R;
 
+/**
+ *  Главный активити.
+ */
 
 public class MainActivity extends AppCompatActivity {
 

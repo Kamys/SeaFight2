@@ -1,17 +1,18 @@
-package hnkntoc.com.seafight2.Game;
+package hnkntoc.com.seafight2.Game.Object;
 
 
 import hnkntoc.com.seafight2.Game.Calculate.CalculateCoorShip;
 import hnkntoc.com.seafight2.Game.Calculate.ShipDelet;
 import hnkntoc.com.seafight2.Game.Calculate.ShipDraw;
 import hnkntoc.com.seafight2.Game.Field.Cell;
+import hnkntoc.com.seafight2.Game.Object.GameObject;
 import hnkntoc.com.seafight2.R;
 
 
 /**
  * Created by HNKNTOC on 10.11.2015.
  */
-public class Ship extends GameObject{
+public class Ship extends GameObject {
 
     private int size;
     private boolean state; //true- vertical , false - horizontal;

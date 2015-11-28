@@ -1,4 +1,4 @@
-package hnkntoc.com.seafight2.Game;
+package hnkntoc.com.seafight2.Game.Object;
 
 import android.util.Log;
 

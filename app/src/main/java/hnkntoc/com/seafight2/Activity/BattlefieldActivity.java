@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import hnkntoc.com.seafight2.Activity.fragment.PlayingFieldFragment;
 import hnkntoc.com.seafight2.Game.Calculate.ShipDraw;
 import hnkntoc.com.seafight2.Game.Field.Cell;
-import hnkntoc.com.seafight2.Game.Ship;
+import hnkntoc.com.seafight2.Game.Object.Ship;
 import hnkntoc.com.seafight2.R;
 
 /**
- * Created by HNKNTOC on 22.11.2015.
+ * В этом активити происходит бой между двумя игроками или ботом.
  */
 public class BattlefieldActivity extends FragmentActivity {
 
@@ -27,10 +27,8 @@ public class BattlefieldActivity extends FragmentActivity {
 
         Cell[][] cells = fragment.getListCell();
 
-        for (Ship ship: (ArrayList<Ship>) getIntent().getSerializableExtra("list")) {
-            ShipDraw shipDraw = new ShipDraw(cells,ship);
-            shipDraw.action();
-        }
+        fragment.update((ArrayList<Ship>) getIntent().getSerializableExtra("list"));
+
 
     }
 }

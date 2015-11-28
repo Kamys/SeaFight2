@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import hnkntoc.com.seafight2.R;
 
 /**
- * Created by HNKNTOC on 23.11.2015.
+ * Test
  */
 public class ImageAdapter extends BaseAdapter {
     private Context mContext;

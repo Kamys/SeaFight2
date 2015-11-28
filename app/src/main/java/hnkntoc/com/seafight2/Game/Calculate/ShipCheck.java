@@ -2,7 +2,7 @@ package hnkntoc.com.seafight2.Game.Calculate;
 
 
 import hnkntoc.com.seafight2.Game.Field.Cell;
-import hnkntoc.com.seafight2.Game.Ship;
+import hnkntoc.com.seafight2.Game.Object.Ship;
 
 /**
  *Проверка Cells на содержани в них других GameObject.

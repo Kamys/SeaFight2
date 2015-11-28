@@ -2,7 +2,7 @@ package hnkntoc.com.seafight2.Game.Field;
 
 
 import hnkntoc.com.seafight2.Game.Clikc.HandlerCellClick;
-import hnkntoc.com.seafight2.Game.GameObject;
+import hnkntoc.com.seafight2.Game.Object.GameObject;
 
 /**
  * Created by HNKNTOC on 19.11.2015.

@@ -2,7 +2,7 @@ package hnkntoc.com.seafight2.Game.Calculate;
 
 
 import hnkntoc.com.seafight2.Game.Field.Cell;
-import hnkntoc.com.seafight2.Game.Ship;
+import hnkntoc.com.seafight2.Game.Object.Ship;
 
 /**
  * Created by HNKNTOC on 14.11.2015.

@@ -1,6 +1,7 @@
-package hnkntoc.com.seafight2.Game;
+package hnkntoc.com.seafight2.Game.Object;
 
 import hnkntoc.com.seafight2.Game.Field.Cell;
+import hnkntoc.com.seafight2.Game.Object.GameObject;
 import hnkntoc.com.seafight2.R;
 
 /**

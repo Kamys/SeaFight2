@@ -15,12 +15,15 @@ import java.util.ArrayList;
 import hnkntoc.com.seafight2.Game.Clikc.ClickDelet;
 import hnkntoc.com.seafight2.Game.Field.Cell;
 import hnkntoc.com.seafight2.Game.Field.PlayingField;
-import hnkntoc.com.seafight2.Game.GenerationShip;
+import hnkntoc.com.seafight2.Game.Object.GenerationShip;
 import hnkntoc.com.seafight2.R;
 import hnkntoc.com.seafight2.Activity.fragment.PlayingFieldFragment;
-import hnkntoc.com.seafight2.Game.Ship;
+import hnkntoc.com.seafight2.Game.Object.Ship;
 
-
+/**
+ * В этом активити происходит расстановка Ships.
+ *
+ */
 public class PlanningActivity extends FragmentActivity implements View.OnClickListener{
 
     private Ship thisShip;

@@ -2,7 +2,7 @@ package hnkntoc.com.seafight2.Game.Calculate;
 
 
 import hnkntoc.com.seafight2.Game.Field.Cell;
-import hnkntoc.com.seafight2.Game.Ship;
+import hnkntoc.com.seafight2.Game.Object.Ship;
 
 /**
  * Главный класс в котором производится вычисления клеток на которых находятся кораблик.

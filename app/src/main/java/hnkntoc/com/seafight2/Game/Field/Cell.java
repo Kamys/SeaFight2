@@ -3,7 +3,7 @@ package hnkntoc.com.seafight2.Game.Field;
 import android.content.Context;
 import android.widget.ImageView;
 
-import hnkntoc.com.seafight2.Game.GameObject;
+import hnkntoc.com.seafight2.Game.Object.GameObject;
 import hnkntoc.com.seafight2.R;
 
 

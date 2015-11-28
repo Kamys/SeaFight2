@@ -3,8 +3,8 @@ package hnkntoc.com.seafight2.Game.Calculate;
 import android.util.Log;
 
 import hnkntoc.com.seafight2.Game.Field.Cell;
-import hnkntoc.com.seafight2.Game.Indent;
-import hnkntoc.com.seafight2.Game.Ship;
+import hnkntoc.com.seafight2.Game.Object.Indent;
+import hnkntoc.com.seafight2.Game.Object.Ship;
 
 /**
  * Created by HNKNTOC on 11.11.2015.
