@@ -20,6 +20,8 @@
 
         <activity android:name=".Activity.BattlefieldActivity" ></activity>
 
+        <activity android:name=".Activity.Victory"></activity>
+
 
 
     </application>

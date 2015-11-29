@@ -8,7 +8,7 @@ import hnkntoc.com.seafight2.Activity.fragment.PlayingFieldFragment;
 import hnkntoc.com.seafight2.Game.Calculate.ShipDraw;
 import hnkntoc.com.seafight2.Game.Clikc.HandlerCellClick;
 import hnkntoc.com.seafight2.Game.Object.GameObject;
-import hnkntoc.com.seafight2.Game.Object.GenerationShip;
+import hnkntoc.com.seafight2.Game.GenerationShip;
 import hnkntoc.com.seafight2.Game.Object.Ship;
 
 /**
@@ -29,6 +29,14 @@ public class PlayingField {
     public PlayingField(Cell[][] listCell,PlanningActivity planningActivity) {
         this.PA = planningActivity;
         this.listCell = listCell;
+    }
+
+    public ArrayList<Ship> getListShip() {
+        return listShip;
+    }
+
+    public Cell[][] getListCell() {
+        return listCell;
     }
 
     public boolean addGameObject(int thisShip, boolean thisStatus, int columns, int rows){

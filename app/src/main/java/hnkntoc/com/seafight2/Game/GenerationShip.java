@@ -1,4 +1,4 @@
-package hnkntoc.com.seafight2.Game.Object;
+package hnkntoc.com.seafight2.Game;
 
 import android.util.Log;
 
@@ -7,6 +7,7 @@ import java.util.Random;
 
 import hnkntoc.com.seafight2.Game.Calculate.ShipDraw;
 import hnkntoc.com.seafight2.Game.Field.Cell;
+import hnkntoc.com.seafight2.Game.Object.Ship;
 
 /**
  * Случайно растовляет колабли на игровом поле;

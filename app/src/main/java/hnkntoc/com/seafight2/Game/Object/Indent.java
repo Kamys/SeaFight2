@@ -12,7 +12,7 @@ public class Indent extends GameObject {
     private int quantity=1;
 
     public Indent(int columns,int rows) {
-        super(R.drawable.krestik);
+        super(R.drawable.white_field,"Indent");
         this.columns=columns;
         this.rows=rows;
     }
@@ -27,13 +27,13 @@ public class Indent extends GameObject {
 
     @Override
     public boolean add(Cell[][] listCell) {
-        listCell[columns][rows].setGameObject(this);
+        quantity++;
         return true;
     }
 
     @Override
-    public void onClick() {
-        quantity++;
+    public void onClick(Cell cell) {
+        cell.setGameObject(new Miss());
     }
 
     @Override

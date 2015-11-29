@@ -10,8 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import hnkntoc.com.seafight2.Game.Bot;
 import hnkntoc.com.seafight2.Game.Field.Cell;
 import hnkntoc.com.seafight2.Game.Field.PlayingField;
+import hnkntoc.com.seafight2.Game.Player;
 import hnkntoc.com.seafight2.R;
 import hnkntoc.com.seafight2.Activity.fragment.PlayingFieldFragment;
 
@@ -118,8 +120,8 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
     public void OnClickNext(View v){
         Log.i("OnClickNext", "NEXT GO");
         Intent intent = new Intent(this,BattlefieldActivity.class);
-        intent.putExtra("Player1", "test");
-        intent.putExtra("Player2", "");
+        intent.putExtra("Player1", new Player(playingField.getListShip(),"HNKNTOC"));
+        intent.putExtra("Player2", new Bot(playingField.getListShip()));
         startActivity(intent);
     }
 

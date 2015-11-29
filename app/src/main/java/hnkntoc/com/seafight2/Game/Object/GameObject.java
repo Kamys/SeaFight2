@@ -14,10 +14,14 @@ public class GameObject implements Serializable {
     protected int resorseId;
     protected int rows;
     protected int columns;
+    protected String typeName;
 
-    public GameObject(int resorseId) {
+    public GameObject(int resorseId,String typeName) {
         this.resorseId = resorseId;
+        this.typeName=typeName;
     }
+
+
 
     public int getResorseId() {
         return resorseId;
@@ -39,6 +43,10 @@ public class GameObject implements Serializable {
         this.columns = columns;
     }
 
+    public String getTypeName() {
+        return typeName;
+    }
+
     public boolean add(Cell[][] listCell){
         listCell[columns][rows].setGameObject(this);
         return true;
@@ -48,8 +56,8 @@ public class GameObject implements Serializable {
         this.resorseId = resorseId;
     }
 
-    public void onClick(){
-        Log.i("GameObject",this.toString());
+    public void onClick(Cell cell){
+        Log.i("GameObject",cell.toString());
     }
 
     public boolean destruction(Cell[][] listCell){

@@ -18,7 +18,7 @@ public class Ship extends GameObject {
     private boolean state; //true- vertical , false - horizontal;
 
     public Ship(int size) {
-        super(R.drawable.white_field);
+        super(R.drawable.white_field,"Ship");
         this.size = size;
 
         switch (size){
@@ -57,6 +57,11 @@ public class Ship extends GameObject {
     public boolean destruction(Cell[][] listCell) {
         CalculateCoorShip calculateCoor = new ShipDelet(listCell,this,this.columns,this.rows);
         return calculateCoor.action();
+    }
+
+    @Override
+    public void onClick(Cell cell) {
+        cell.setGameObject(new DestroyedShip());
     }
 
     @Override

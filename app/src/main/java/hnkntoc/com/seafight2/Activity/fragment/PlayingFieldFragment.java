@@ -110,7 +110,7 @@ public class PlayingFieldFragment extends Fragment{
 
 
     private Cell createCell(TableRow.LayoutParams params, int rows, int columns){
-        Cell cell = new Cell(rootView.getContext(),rows-1,columns-1);
+        Cell cell = new Cell(rootView.getContext(),columns-1,rows-1);
         cell.setImageResource(R.drawable.white_field);
         cell.setLayoutParams(params);
         addCell(cell);

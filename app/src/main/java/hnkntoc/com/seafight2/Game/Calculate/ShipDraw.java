@@ -3,6 +3,7 @@ package hnkntoc.com.seafight2.Game.Calculate;
 import android.util.Log;
 
 import hnkntoc.com.seafight2.Game.Field.Cell;
+import hnkntoc.com.seafight2.Game.Object.GameObject;
 import hnkntoc.com.seafight2.Game.Object.Indent;
 import hnkntoc.com.seafight2.Game.Object.Ship;
 
@@ -28,10 +29,11 @@ public class ShipDraw extends CalculateCoorShip {
     protected void actionIndent(int columns, int rows) {
         Log.i("ActionGrap krestik", "" + columns + ";" + rows + "=" + listCell[columns][rows].toString());
         Cell cell = listCell[columns][rows];
-        if(cell.getGameObject()==null){
+        GameObject gameObject = cell.getGameObject();
+        if(gameObject==null){
             cell.setGameObject(new Indent(columns,rows));
         }else {
-            cell.getGameObject().onClick();
+            cell.getGameObject().add(listCell);
         }
     }
 
