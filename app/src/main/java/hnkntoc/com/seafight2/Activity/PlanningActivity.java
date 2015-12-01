@@ -10,10 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import hnkntoc.com.seafight2.Game.Bot;
+import hnkntoc.com.seafight2.Game.Players.Bot;
 import hnkntoc.com.seafight2.Game.Field.Cell;
 import hnkntoc.com.seafight2.Game.Field.PlayingField;
-import hnkntoc.com.seafight2.Game.Player;
+import hnkntoc.com.seafight2.Game.Players.Player;
 import hnkntoc.com.seafight2.R;
 import hnkntoc.com.seafight2.Activity.fragment.PlayingFieldFragment;
 

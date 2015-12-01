@@ -5,7 +5,6 @@ import hnkntoc.com.seafight2.Game.Calculate.CalculateCoorShip;
 import hnkntoc.com.seafight2.Game.Calculate.ShipDelet;
 import hnkntoc.com.seafight2.Game.Calculate.ShipDraw;
 import hnkntoc.com.seafight2.Game.Field.Cell;
-import hnkntoc.com.seafight2.Game.Object.GameObject;
 import hnkntoc.com.seafight2.R;
 
 

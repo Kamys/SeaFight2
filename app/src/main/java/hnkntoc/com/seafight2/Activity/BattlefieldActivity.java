@@ -6,14 +6,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 
 
-import java.util.ArrayList;
-
 import hnkntoc.com.seafight2.Activity.fragment.PlayingFieldFragment;
 import hnkntoc.com.seafight2.Game.Battlefield;
-import hnkntoc.com.seafight2.Game.Calculate.ShipDraw;
-import hnkntoc.com.seafight2.Game.Field.Cell;
-import hnkntoc.com.seafight2.Game.Object.Ship;
-import hnkntoc.com.seafight2.Game.Player;
+import hnkntoc.com.seafight2.Game.Players.Player;
 import hnkntoc.com.seafight2.R;
 
 /**
@@ -37,8 +32,8 @@ public class BattlefieldActivity extends FragmentActivity {
         fragment1.update(player1.getListShip());
         fragment2.update(player1.getListShip());
 
-        player1.setListCell(fragment2.getListCell());
-        player2.setListCell(fragment1.getListCell());
+        player1.setListCell(fragment1.getListCell());
+        player2.setListCell(fragment2.getListCell());
         player2.setListCellEnemy(fragment1.getListCell());
 
         battlefield = new Battlefield(player1,player2,this);

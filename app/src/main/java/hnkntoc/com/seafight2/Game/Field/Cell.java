@@ -3,8 +3,6 @@ package hnkntoc.com.seafight2.Game.Field;
 import android.content.Context;
 import android.widget.ImageView;
 
-import java.io.Serializable;
-
 import hnkntoc.com.seafight2.Game.Object.GameObject;
 import hnkntoc.com.seafight2.R;
 
@@ -40,9 +38,6 @@ public class Cell extends ImageView{
     public void setGameObject(GameObject gameObject) {
         this.gameObject = gameObject;
         update();
-    }
-
-    public void onClick(){
     }
 
     /**
