@@ -1,21 +1,21 @@
 package hnkntoc.com.seafight2.Activity;
 
 
-
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import hnkntoc.com.seafight2.Game.Players.Bot;
+import hnkntoc.com.seafight2.Activity.fragment.PlayingFieldFragment;
 import hnkntoc.com.seafight2.Game.Field.Cell;
 import hnkntoc.com.seafight2.Game.Field.PlayingField;
+import hnkntoc.com.seafight2.Game.Players.Bot;
 import hnkntoc.com.seafight2.Game.Players.Player;
 import hnkntoc.com.seafight2.R;
-import hnkntoc.com.seafight2.Activity.fragment.PlayingFieldFragment;
 
 /**
  * В этом активити происходит расстановка Ships.
@@ -26,7 +26,6 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
     private int thisShip;
     private boolean thisStatus=true; //true- vertical , false - horizontal;
     private PlayingField playingField;
-    private PlayingFieldFragment playingFieldFragment;
 
     private boolean butStateAdd; //Нажаты ли кнопки добавление корабля
     private boolean butStateDelet;//Нажати ли кнопка Удалит
@@ -46,7 +45,7 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
         addShip3 = (Button) findViewById(R.id.newShip3);
         addShip4 = (Button) findViewById(R.id.newShip4);
 
-        playingFieldFragment = (PlayingFieldFragment) getFragmentManager().findFragmentById(R.id.fieldFragment);
+        PlayingFieldFragment playingFieldFragment = (PlayingFieldFragment) getFragmentManager().findFragmentById(R.id.fieldFragment);
 
         for(Cell cells[]: playingFieldFragment.getListCell()){
             for(Cell cell:cells){
@@ -74,27 +73,42 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
             return;
         }
 
-        if(thisShip!=0){
-            return;
-        }
-
-
         if(butStateDelet){
             playingField.destructionGameObject(columns, rows);
         }
-        butStateAdd = false;
-        butStateDelet = false;
+        resetStatusButton();
     }
 
     public void OnClickNewShip(View v){
-        thisShip=0;
         butStateAdd = true;
         switch (v.getId()){
-            case R.id.newShip1: thisShip = 1; break;
-            case R.id.newShip2: thisShip = 2; break;
-            case R.id.newShip3: thisShip = 3; break;
-            case R.id.newShip4: thisShip = 4; break;
+            case R.id.newShip1:
+                thisShip = 1;
+                addShip1.setTextColor(Color.RED);
+                break;
+            case R.id.newShip2:
+                thisShip = 2;
+                addShip2.setTextColor(Color.RED);
+                break;
+            case R.id.newShip3:
+                thisShip = 3;
+                addShip3.setTextColor(Color.RED);
+                break;
+            case R.id.newShip4:
+                thisShip = 4;
+                addShip4.setTextColor(Color.RED);
+                break;
         }
+    }
+
+    private void resetStatusButton() {
+        butStateAdd = false;
+        butStateDelet = false;
+        thisShip = 0;
+        addShip1.setTextColor(Color.BLACK);
+        addShip2.setTextColor(Color.BLACK);
+        addShip3.setTextColor(Color.BLACK);
+        addShip4.setTextColor(Color.BLACK);
     }
 
     public void OnClickStatusChange(View v){
@@ -126,7 +140,7 @@ public class PlanningActivity extends FragmentActivity implements View.OnClickLi
     }
 
     public void OnClickRandom(View v){
-        playingField.Random(playingFieldFragment);
+        playingField.Random();
     }
 
     public Button getAddShip1() {

@@ -17,23 +17,25 @@ public class GenerationShip {
     private Cell[][] listCell;
     private ArrayList<Ship> listShip;
 
-    public GenerationShip(Cell[][] cells) {
-        this.listCell =cells;
+    public GenerationShip(Cell[][] listCell) {
+        this.listCell = listCell;
     }
 
     public ArrayList<Ship> getListShip() {
+        generate();
         return listShip;
     }
 
     /**
-     * Возвращает список 10 Ship со случайно сгенерированным положением.
+     * Возвращает ArrayList<Ship> c 10 Ship в нём.
      * @return ArrayList<Ship>
      */
-    private ArrayList<Ship> getRandomShips(){
+    private ArrayList<Ship> getGenerationShips() {
         ArrayList<Ship> ships = new ArrayList<>();
 
-        int number=4;
+        int number = 4; //количество Ship
 
+        //Создание 10 Ship. В первом цикле размер лодки 4 количество i то есть 1.
         for(int i=1;i<=4;i++){
             for(int s=0;s<number;s++){
                 ships.add(new Ship(i));
@@ -45,11 +47,31 @@ public class GenerationShip {
     }
 
     /**
-     * Рандомно растовляет Ships из listShip в listCell;
+     * Выполняет метод putRandomAllShips 200 раз пока тот не вернёт true , в противном случае возврашает false.
+     *
      * @return false при возникновении ошибки
      */
-    private boolean putRandomAllShips(){
-        listShip = getRandomShips();
+    private boolean generate() {
+        int i = 0;
+        while (!putRandomAllShips()) {
+            i++;
+            if (i > 200) {
+                Log.e("GenerationShip", "Generation BattleField attempts exceeded 200");
+                return false;
+            }
+            for (Ship ship : listShip) {
+                ship.destruction(listCell);
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Выполняет метод putRandomAllShips 2000 раз пока тот не вернёт true , в противном случае возврашает false.
+     * @return false при возникновении ошибки
+     */
+    private boolean putRandomAllShips() {
+        listShip = getGenerationShips();
         int i=0;
         for(Ship ship:listShip){
             while (!putRandomShip(ship)){
@@ -89,24 +111,4 @@ public class GenerationShip {
         shipDraw = new ShipDraw(listCell,ship);
         return shipDraw.action();
     }
-
-    /**
-     * Случайно растонавливает Ships в Cell[][]
-     * @return false при возникновении ошибки
-     */
-    public boolean generate(){
-        int i=0;
-        while (!putRandomAllShips()){
-            i++;
-            if(i>200){
-                Log.e("GenerationShip","Generation BattleField attempts exceeded 200");
-                return false;
-            }
-            for(Ship ship:listShip){
-                ship.destruction(listCell);
-            }
-        }
-        return true;
-    }
-
 }

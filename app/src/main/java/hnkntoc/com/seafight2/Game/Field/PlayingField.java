@@ -4,11 +4,10 @@ package hnkntoc.com.seafight2.Game.Field;
 import java.util.ArrayList;
 
 import hnkntoc.com.seafight2.Activity.PlanningActivity;
-import hnkntoc.com.seafight2.Activity.fragment.PlayingFieldFragment;
 import hnkntoc.com.seafight2.Game.Calculate.ShipDraw;
 import hnkntoc.com.seafight2.Game.Clikc.HandlerCellClick;
-import hnkntoc.com.seafight2.Game.Object.GameObject;
 import hnkntoc.com.seafight2.Game.GenerationShip;
+import hnkntoc.com.seafight2.Game.Object.GameObject;
 import hnkntoc.com.seafight2.Game.Object.Ship;
 
 /**
@@ -57,8 +56,9 @@ public class PlayingField {
 
     public boolean destructionGameObject(int columns,int rows){
         GameObject gameObject = listCell[columns][rows].getGameObject();
+        Ship ship = (Ship) gameObject;
         if(gameObject.destruction(listCell)){
-            listShip.remove(gameObject);
+            listShip.remove(ship);
             calcShips();
             return true;
         }
@@ -79,14 +79,9 @@ public class PlayingField {
         return true;
     }
 
-    public boolean Random(PlayingFieldFragment playingFieldFragment){
+    public boolean Random() {
         clearGameObject();
         GenerationShip generationShip = new GenerationShip(listCell);
-        if(!generationShip.generate()){
-            playingFieldFragment.update(listShip);
-            calcShips();
-            return false;
-        }
         listShip = generationShip.getListShip();
         calcShips();
         return true;
